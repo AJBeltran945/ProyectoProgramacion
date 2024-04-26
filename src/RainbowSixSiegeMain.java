@@ -1,5 +1,10 @@
 public class RainbowSixSiegeMain {
     public static void main(String[] args) {
+        // Create an array of Playable objects
+        Playable[] entities = new Playable[2];
+        entities[0] = new Player("Player1", 100, 50);
+        entities[1] = new Operator("Operator1", "Special Ability1");
+
         // Create players
         Player player1 = new Player("Austin", 100, 50);
         Player player2 = new Player("Bruna");
@@ -30,7 +35,12 @@ public class RainbowSixSiegeMain {
         operator1.useSpecialAbility();
         operator2.useSpecialAbility();
 
-        // Example of dynamic polymorphism
+        // Perform actions for each entity
+        for (Playable entity : entities) {
+            entity.performAction();
+        }
+
+        // Dynamic polymorphism
         Player[] players = {player1, player2};
         for (Player player : players) {
             System.out.println("Player Information: " + player);

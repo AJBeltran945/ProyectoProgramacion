@@ -1,4 +1,4 @@
-public class Operator {
+public class Operator implements Playable{
     private String name;
     private String specialAbility;
 
@@ -25,7 +25,13 @@ public class Operator {
 
     // Method to use the operator's special ability
     public void useSpecialAbility() {
-        System.out.println("Operator uses ability");
+        System.out.println(name + " uses ability");
+    }
+
+    @Override
+    public void performAction() {
+        // Implement operator action logic here
+        System.out.println(name + " performs an action as an operator.");
     }
 
     // Method to display operator information

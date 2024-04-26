@@ -1,4 +1,4 @@
-public class Player {
+public class Player implements Playable {
     private String name;
     private int health;
     private int armor;
@@ -49,9 +49,10 @@ public class Player {
         this.currentOperator = operator;
     }
 
-    // Method to perform some action (e.g., shoot)
+    @Override
     public void performAction() {
-        // Implement action logic here
+        // Implement player action logic here
+        System.out.println(name + " performs an action as a player.");
     }
 
     // Method to display player information
