@@ -1,19 +1,27 @@
-public class Player implements Playable {
+public class Player {
     private String name;
     private int health;
     private int armor;
     private Operator currentOperator;
+    private Map currentMap;
 
+    // Constructors
     public Player(String name, int health, int armor) {
-        this.name = name;
-        this.health = health;
-        this.armor = armor;
+        this.setName(name);
+        this.setHealth(health);
+        this.setArmor(armor);
     }
-
+    public Player(String name, int health) {
+        this.setName(name);
+        this.setHealth(health);
+    }
     public Player(String name) {
-        this(name, 100, 50); // Default health and armor values
+        this.setName(name);
+    }
+    public Player() {
     }
 
+    // Getters and setters
     public String getName() {
         return name;
     }
@@ -46,15 +54,21 @@ public class Player implements Playable {
         this.currentOperator = currentOperator;
     }
 
+    public void setCurrentOMap(Map currentMap) {
+        this.currentMap = currentMap;
+    }
+
+    // Method to select aa map
+    public void selectMap(Map map) {
+        this.currentMap = map;
+    }
+
+    // Method to select an operator
     public void selectOperator(Operator operator) {
         this.currentOperator = operator;
     }
 
-    @Override
-    public void performAction() {
-        System.out.println(name + " performs an action as a player.");
-    }
-
+    // ToString method
     @Override
     public String toString() {
         return "Player{name='" + name + "', health=" + health + ", armor=" + armor + ", currentOperator=" + currentOperator + "}";

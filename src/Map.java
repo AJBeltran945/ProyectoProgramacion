@@ -1,10 +1,13 @@
+// Map class
 public class Map {
     private String name;
 
+    // Constructors
     public Map(String name) {
         this.name = name;
     }
 
+    // Getters and setters
     public String getName() {
         return name;
     }
@@ -13,10 +16,7 @@ public class Map {
         this.name = name;
     }
 
-    public void display() {
-        // Implement map display logic here
-    }
-
+    // ToString method
     @Override
     public String toString() {
         return "Map{name='" + name + "'}";

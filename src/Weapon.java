@@ -1,34 +1,11 @@
-public class Weapon {
-    private String name;
-    private int damage;
+public abstract class Weapon implements Playable{
+    // Abstract methods to shoot or reaload the weapon
+    abstract void shoot();
+    abstract void reload();
 
-    public Weapon(String name, int damage) {
-        this.name = name;
-        this.damage = damage;
-    }
-
-    public String getName() {
-        return name;
-    }
-
-    public void setName(String name) {
-        this.name = name;
-    }
-
-    public int getDamage() {
-        return damage;
-    }
-
-    public void setDamage(int damage) {
-        this.damage = damage;
-    }
-
-    public void shoot() {
-        System.out.println(name + " uses an ability");
-    }
-
+    // Perform action method
     @Override
-    public String toString() {
-        return "Weapon{name='" + name + "', damage=" + damage + "}";
+    public void performAction() {
+        System.out.println();
     }
 }
