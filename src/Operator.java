@@ -31,7 +31,7 @@ public class Operator implements Playable{
     @Override
     public void performAction() {
         // Implement operator action logic here
-        System.out.println(name + " performs an action as an operator.");
+        System.out.println(name + " uses an ability");
     }
 
     // Method to display operator information

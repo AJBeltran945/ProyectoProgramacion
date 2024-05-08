@@ -25,7 +25,7 @@ public class Weapon {
 
     // Method to shoot the weapon
     public void shoot() {
-        // Implement shooting logic here
+        System.out.println(name + " uses an ability");
     }
 
     // Method to display weapon information
