@@ -1,9 +1,8 @@
+import java.util.Scanner;
+
 public class RainbowSixSiegeMain {
     public static void main(String[] args) {
-        // Create an array of Playable objects
-        Playable[] entities = new Playable[2];
-        entities[0] = new Player("Arthur", 100, 50);
-        entities[1] = new Operator("Flores", "Special Ability1");
+        Scanner scanner = new Scanner(System.in);
 
         // Create players
         Player player1 = new Player("Austin", 100, 50);
@@ -11,12 +10,40 @@ public class RainbowSixSiegeMain {
 
         // Create operators
         Operator operator1 = new Operator("Lion", "EE-ONE-D");
-        Operator operator2 = new Operator("Nomand", "AirJab");
+        Operator operator2 = new Operator("Nomad", "AirJab");
 
-        // Assign operators to players
-        player1.selectOperator(operator1);
-        player2.selectOperator(operator2);
+        // Display menu for choosing an operator
+        System.out.println("Welcome to Rainbow Six Siege Lite!");
+        System.out.println("Choose your operator:");
+        System.out.println("1. Lion");
+        System.out.println("2. Nomad");
+        System.out.print("Enter the number of the operator you want to choose: ");
 
+        // Read player's choice
+        int operatorChoice = scanner.nextInt();
+
+        // Create selected operator based on player's choice
+        Operator selectedOperator = null;
+        switch (operatorChoice) {
+            case 1:
+                selectedOperator = operator1;
+                break;
+            case 2:
+                selectedOperator = operator2;
+                break;
+            default:
+                System.out.println("Invalid choice. Default operator selected.");
+                selectedOperator = new Operator("Recruit", "None");
+        }
+
+        // Assign selected operator to players
+        player1.selectOperator(selectedOperator);
+        player2.selectOperator(selectedOperator);
+
+        // Display selected operator
+        System.out.println("You have chosen: " + selectedOperator.getName());
+
+        // Continue with the rest of your code...
         // Create weapons
         Weapon weapon1 = new Weapon("V308 ASSAULT RIFLE", 50);
         Weapon weapon2 = new Weapon("AK-74M ASSAULT RIFLE", 40);
@@ -36,6 +63,7 @@ public class RainbowSixSiegeMain {
         operator2.useSpecialAbility();
 
         // Perform actions for each entity
+        Playable[] entities = {player1, player2, operator1, operator2};
         for (Playable entity : entities) {
             entity.performAction();
         }
