@@ -1,4 +1,3 @@
-// Operator class
 public class Operator {
     private String name;
     private String specialAbility;
