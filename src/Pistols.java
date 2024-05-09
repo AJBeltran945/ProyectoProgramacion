@@ -9,7 +9,12 @@ public class Pistols extends Weapon{
 
     @Override
     void reload() {
-        System.out.println("reloads with "+name);
+        System.out.println("reloading...");
+    }
+
+    @Override
+    public void performAction() {
+        System.out.println("Takes out "+name);
     }
 
     // Constructors
