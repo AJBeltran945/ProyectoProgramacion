@@ -24,8 +24,7 @@ public class RainbowSixSiegeMain {
 
         // Display Intro
         System.out.println("----Welcome to Rainbow Six Siege Lite!----");
-        // sleep
-        try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep1000();
 
 
         // Ask player for his name
@@ -34,22 +33,45 @@ public class RainbowSixSiegeMain {
         player1.setName(name);
         System.out.println("------------------------------------------");
 
-        // sleep
-        try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep1000();
+
+        // Display menu for choosing gamemode
+        System.out.println("Chose Gamewmode to play: ");
+        sleep500();
+        System.out.println("1. BOMB");
+        sleep500();
+        System.out.println("2. HOSTAGE");
+        sleep500();
+        System.out.println("3. SECURE_AREA");
+        sleep500();
+        System.out.print("Enter the number of the gamemode you want to play: ");
+        sleep2000();
+
+        // Get the players choice
+        int gmChoice = scanner.nextInt();
+
+        // Create selected gm based on player's choice
+        GameMode selectedGM = switch (gmChoice) {
+            case 1 -> selectedGM = GameMode.BOMB;
+            case 2 -> selectedGM = GameMode.HOSTAGE;
+            case 3 -> selectedGM = GameMode.SECURE_AREA;
+            default -> null;
+        };
+        // Display selected gm
+        System.out.println("Selected Gamemode: "+ selectedGM);
+        System.out.println("------------------------------------------");
+
+        sleep1000();
 
         // Display menu for choosing a map
         System.out.println("Choosing random map from:");
-        // sleep
-        try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep500();
         System.out.println("Oregon");
-        // sleep
-        try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep500();
         System.out.println("Skyscraper");
-        // sleep
-        try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep500();
         System.out.println("Loading....");
-        // sleep
-        try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep2000();
 
         // Get a random number between 1 and 2
         int defaultChoice = (int)Math.floor(Math.random() * (2 - 1 + 1) + 1);
@@ -68,19 +90,15 @@ public class RainbowSixSiegeMain {
         System.out.println("Map Information: " + selectedMap.getName());
         System.out.println("------------------------------------------");
 
-        // sleep
-        try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep1000();
 
         // Display menu for choosing an operator
         System.out.println("Choose your operator:");
-        // sleep
-        try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep500();
         System.out.println("1. Lion");
-        // sleep
-        try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep500();
         System.out.println("2. Nomad");
-        // sleep
-        try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep500();
         System.out.print("Enter the number of the operator you want to choose: ");
 
         // Read player's choice
@@ -103,38 +121,30 @@ public class RainbowSixSiegeMain {
         // Assign selected operator to players
         player1.selectOperator(selectedOperator);
 
-        // sleep
-        try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep500();
 
         // Display selected operator
         System.out.println("You have chosen: " + selectedOperator.getName());
         System.out.println("------------------------------------------");
 
-        // sleep
-        try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+        sleep1000();
 
         // Ask player if they want to use the operator's ability
         System.out.print("Do you want to use the operator's ability? (yes/no): ");
         String choice1 = scanner.next();
 
         if (choice1.equalsIgnoreCase("yes")) {
-            // sleep
-            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+            sleep1000();
             selectedOperator.useSpecialAbility();
-            // sleep
-            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+            sleep1000();
             System.out.println("You have killed the enemy...");
-            // sleep
-            try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+            sleep2000();
             System.out.println("YOU WON");
-            // sleep
-            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+            sleep1000();
         } else {
-            // sleep
-            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+            sleep1000();
             System.out.println("Operator's ability not used.");
-            // sleep
-            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+            sleep1000();
             // Perform actions
             Playable[] entities = {weapon1,weapon3,weapon2,weapon4};
             for (int i = 0; i < entities.length; i++) {
@@ -142,55 +152,44 @@ public class RainbowSixSiegeMain {
                     Random random = new Random();
                     int randomNumber = random.nextInt(2);
                     entities[randomNumber].performAction();
-                    // sleep
-                    try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+                    sleep1000();
                     // Ask player if he wants to shoot
                     System.out.print("Do you want to use your weapon? (yes/no): ");
                     String choice2 = scanner.next();
 
                     if (choice2.equalsIgnoreCase("yes")) {
                         if (randomNumber == 0){
-                            // sleep
-                            try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep500();
                             weapon1.shoot();
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep1000();
                             weapon1.reload();
-                            // sleep
-                            try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep2000();
                             weapon1.shoot();
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
-                            System.out.print("..headshot..");
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
-                            System.out.print("You WIN");
+                            sleep1000();
+                            System.out.println("..headshot..");
+                            sleep1000();
+                            System.out.println("You WIN");
                         }else{
-                            // sleep
-                            try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep500();
                             weapon3.shoot();
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep1000();
                             weapon3.reload();
                             // sleep
                             try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
                             weapon3.shoot();
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
-                            System.out.print("..headshot..");
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
-                            System.out.print("You WIN");
+                            sleep1000();
+                            System.out.println("..headshot..");
+                            sleep1000();
+                            System.out.println("You WIN");
                         }
                     }else{
-                        // sleep
-                        try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+                        sleep1000();
                         System.out.println("...You got headshoted...");
-                        // sleep
-                        try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+                        player1.setHealth(0);
+                        player1.setArmor(0);
+                        sleep500();
                         System.out.println("YOU LOSE...");
-                        // sleep
-                        try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+                        sleep2000();
                     }
                     break;
                 } else {
@@ -203,47 +202,36 @@ public class RainbowSixSiegeMain {
 
                     if (choice2.equalsIgnoreCase("yes")) {
                         if (randomNumber == 2){
-                            // sleep
-                            try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep500();
                             weapon2.shoot();
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep1000();
                             weapon2.reload();
-                            // sleep
-                            try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep2000();
                             weapon2.shoot();
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
-                            System.out.print("..headshot..");
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
-                            System.out.print("You WIN");
+                            sleep1000();
+                            System.out.println("..headshot..");
+                            sleep1000();
+                            System.out.println("You WIN");
                         }else{
-                            // sleep
-                            try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep500();
                             weapon4.shoot();
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep1000();
                             weapon4.reload();
-                            // sleep
-                            try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+                            sleep2000();
                             weapon4.shoot();
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
-                            System.out.print("..headshot..");
-                            // sleep
-                            try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
-                            System.out.print("You WIN");
+                            sleep1000();
+                            System.out.println("..headshot..");
+                            sleep1000();
+                            System.out.println("You WIN");
                         }
                     }else{
-                        // sleep
-                        try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+                        sleep1000();
                         System.out.println("...You got headshoted...");
-                        // sleep
-                        try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+                        player1.setHealth(0);
+                        player1.setArmor(0);
+                        sleep500();
                         System.out.println("YOU LOSE...");
-                        // sleep
-                        try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
+                        sleep2000();
                     }
                     break;
                 }
@@ -254,7 +242,19 @@ public class RainbowSixSiegeMain {
         // Dynamic polymorphism
         Player[] players = {player1};
         for (Player player : players) {
-            System.out.println("Game Information: " + player);
+            System.out.println("----Game Information----");
+            System.out.println(player);
+            System.out.println("GameMode{"+selectedGM+"}");
         }
+    }
+
+    public static void sleep500(){
+        try {Thread.sleep(500);} catch (InterruptedException e) {e.printStackTrace();}
+    }
+    public static void sleep1000(){
+        try {Thread.sleep(1000);} catch (InterruptedException e) {e.printStackTrace();}
+    }
+    public static void sleep2000(){
+        try {Thread.sleep(2000);} catch (InterruptedException e) {e.printStackTrace();}
     }
 }

@@ -18,8 +18,8 @@ public class Player {
     public Player(String name) {
         this.setName(name);
     }
-    public Player() {
-    }
+
+    public Player() {}
 
     // Getters and setters
     public String getName() {
@@ -30,9 +30,7 @@ public class Player {
         this.name = name;
     }
 
-    public int getHealth() {
-        return health;
-    }
+    public int getHealth() {return health;}
 
     public void setHealth(int health) {
         this.health = health;
@@ -54,6 +52,8 @@ public class Player {
         this.currentOperator = currentOperator;
     }
 
+    public Map getCurrentMap(){return currentMap;}
+
     public void setCurrentOMap(Map currentMap) {
         this.currentMap = currentMap;
     }
@@ -71,6 +71,6 @@ public class Player {
     // ToString method
     @Override
     public String toString() {
-        return "Player{name='" + name + "', health=" + health + ", armor=" + armor + ", currentOperator=" + currentOperator + "}";
+        return "Player{name='" + name + "', health=" + health + ", armor=" + armor + "}\n" + currentOperator+"\n"+currentMap;
     }
 }
